@@ -24,8 +24,5 @@ ReactDOM.render(
   </Switch>
   </BrowserRouter>,
 
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
   document.getElementById('root')
 );
