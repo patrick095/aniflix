@@ -63,6 +63,7 @@ function Menu() {
         </>
       );
     }
+    return (<> </>);
   }
 
   return (
