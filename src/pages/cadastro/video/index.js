@@ -4,7 +4,7 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import Button from '../../../components/Button';
-import videosRepository from '../../../respositories/videos';
+import videosRepository from '../../../respositories/animes';
 import categoriesRepository from '../../../respositories/categories';
 
 function CadastroVideo() {

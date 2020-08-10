@@ -1,16 +1,32 @@
 import React from 'react';
-import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
+import { VideoCardGroupContainer, Title } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, { SliderItem } from './components/Slider';
 
 function Carousel({
   ignoreFirstVideo,
   category,
+  Season,
+  Color,
+  Episodes,
+  atual,
+  animeName
 }) {
-  const categoryTitle = category.titulo;
-  const categoryColor = category.cor;
-  const categoryExtraLink = category.link_extra;
-  const videos = category.videos;
+  var categoryTitle;
+  var categoryColor; 
+  var videos;
+  if (category) {
+    categoryTitle = category.name;
+    categoryColor = category.color; 
+    videos = category.animes;
+  }
+  else {
+    categoryTitle = Season;
+    categoryColor = Color; 
+    videos = Episodes;
+  }
+  let URL;
+  
   return (
     <VideoCardGroupContainer>
       {categoryTitle && (
@@ -18,11 +34,6 @@ function Carousel({
           <Title style={{ backgroundColor: categoryColor || 'red' }}>
             {categoryTitle}
           </Title>
-          {categoryExtraLink && 
-            <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}  
-            </ExtraLink>
-          }
         </>
       )}
       <Slider>
@@ -30,13 +41,19 @@ function Carousel({
           if (ignoreFirstVideo && index === 0) {
             return null;
           }
-
+          if(atual === 'home'){
+            URL = `/anime/${video.name}`
+          }
+          else if (atual === 'anime'){
+            URL = `/anime/${animeName}/${video.name}`
+          }
           return (
-            <SliderItem key={video.titulo}>
+            <SliderItem key={video.name}>
               <VideoCard
-                videoTitle={video.titulo}
-                videoURL={video.url}
+                videoTitle={video.name}
+                videoURL={URL}
                 categoryColor={categoryColor}
+                videoCape={video.capeURL}
               />
             </SliderItem>
           );

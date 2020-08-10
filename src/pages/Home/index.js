@@ -13,41 +13,36 @@ function Home() {
       .then((categoriesWithVideos) => {
         setData(categoriesWithVideos);
       });
-    // const URL = window.location.hostname.includes('localhost')
-    //   ? 'http://localhost:8080/categorias?_embed=videos'
-    //   : 'https://devflix-nine.herokuapp.com/categorias?_embed=videos';
-    // fetch(URL)
-    //   .then(async (res) => {
-    //     const response = await res.json();
-    //     setCategory(response);
-    //     console.log(response);
-    //   });
   }, []);
 
   return (
     <PageDefault paddingAll={0}>
       {data.length === 0 && (<div>Loading...</div>)}
 
-      {data.map((category, index) => {
+      {data.map((anime, index) => {
         if (index === 0) {
           return (
-            <div key={category.id}>
+            <div key={anime.id}>
               <BannerMain
-                videoTitle={data[0].videos[0].titulo}
-                url={data[0].videos[0].url}
-                videoDescription="O que é Front-end?"
+                videoTitle={data[0].animes[0].name}
+                url={data[0].animes[0].capeURL}
+                videoDescription={data[0].animes[0].resume}
+                Iframe
+                trailerURL={data[0].animes[0].trailerURL}
               />
               <Carousel
-                ignoreFirstVideo
                 category={data[0]}
+                atual="home"
               />
             </div>
           );
         }
+
         return (
           <Carousel
-            key={category.id}
-            category={category}
+            key={ data[index].id }
+            category={data[index]}
+            atual="home"
           />
         );
       })}

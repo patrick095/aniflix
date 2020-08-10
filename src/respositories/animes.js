@@ -1,14 +1,14 @@
 import config from '../config';
 
-const URL_VIDEOS = `${config.URL}/videos`;
+const URL_VIDEOS = `${config.URL}/anime`;
 
-function create(video) {
-  return fetch(`${URL_VIDEOS}`, {
-    method: 'POST',
+function select(name) {
+  return fetch(`${URL_VIDEOS}/?name=${name}`, {
+    method: 'GET',
     headers: {
       'content-type': 'application/json',
     },
-    body: JSON.stringify(video),
+    // body: JSON.stringify(video),
   })
     .then(async (res) => {
       if (res.ok) {
@@ -20,5 +20,5 @@ function create(video) {
 }
 
 export default {
-  create,
+  select,
 };

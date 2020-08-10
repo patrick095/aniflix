@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "json-server": "^0.16.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -16,9 +17,8 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "server": "node ./server.js",
-    "dev": "concurrently \"react-scripts start\" \"yarn server\"",
-    "start": "npm run server",
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

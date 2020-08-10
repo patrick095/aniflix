@@ -1,6 +1,7 @@
 import React from 'react';
 import VideoIframeResponsive from './components/VideoIframeResponsive';
 import { BannerMainContainer, ContentAreaContainer, WatchButton } from './styles';
+import { Link } from 'react-router-dom';
 
 function getYouTubeId(youtubeURL) {
   return youtubeURL
@@ -14,15 +15,36 @@ export default function BannerMain({
   videoTitle,
   videoDescription,
   url,
+  trailerURL,
+  Iframe
 }) {
-  const youTubeID = getYouTubeId(url);
-  const bgUrl = `https://img.youtube.com/vi/${youTubeID}/maxresdefault.jpg`;
+  let youTubeID = '';
+  if (Iframe) {
+    youTubeID = getYouTubeId(trailerURL);
+  }
+  const bgUrl = url;
+
+  function VideoIframe({show}){
+    if(show === true) {
+      return (
+        <VideoIframeResponsive
+          youtubeID={youTubeID}
+      />
+      )
+    } else {
+      return (
+        <>
+        < />
+      )
+    }
+  }
+
 
   return (
     <BannerMainContainer backgroundImage={bgUrl}>
       <ContentAreaContainer>
         <ContentAreaContainer.Item>
-          <ContentAreaContainer.Title>
+          <ContentAreaContainer.Title as={Link} to={`/anime/${videoTitle}`}>
             {videoTitle}
           </ContentAreaContainer.Title>
 
@@ -32,9 +54,7 @@ export default function BannerMain({
         </ContentAreaContainer.Item>
 
         <ContentAreaContainer.Item>
-          <VideoIframeResponsive
-            youtubeID={youTubeID}
-          />
+          <VideoIframe show={Iframe} />
           <WatchButton>
             Assistir
           </WatchButton>
