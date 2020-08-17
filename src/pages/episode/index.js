@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PageDefault from '../../components/PageDefault';
 import animes from '../../respositories/animes';
@@ -49,8 +49,8 @@ function EpisodePage() {
         />
       </Div>
       <Div>
-        <VideoButton>Anterior</VideoButton>
-        <VideoButton>Próximo</VideoButton>
+        <VideoButton as={Link} to={episode - 1}>Anterior</VideoButton>
+        <VideoButton as={Link} to={episode + 1}>Próximo</VideoButton>
       </Div>
     </PageDefault>
   );
