@@ -42,10 +42,10 @@ function Carousel({
             return null;
           }
           if(atual === 'home'){
-            URL = `/anime/${video.name}`
+            URL = `/anime/${video.name}`;
           }
           else if (atual === 'anime'){
-            URL = `/anime/${animeName}/${video.name}`
+            URL = `/anime/${animeName}/${(index+1)}`;
           }
           return (
             <SliderItem key={video.name}>

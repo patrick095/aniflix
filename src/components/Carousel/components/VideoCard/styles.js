@@ -33,4 +33,5 @@ export const VideoCardContainer = styled.a`
 export const Span = styled.span`
 text-align: center;
 width: 198px;
+max-content: 198px;
 `;

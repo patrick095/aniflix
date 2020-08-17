@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CadastroCategoria from './pages/cadastro/categoria';
 import AnimePage from './pages/anime';
 import Login from './pages/Login';
+import EpisodePage from './pages/episode';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -18,7 +19,7 @@ ReactDOM.render(
     <Route path="/editanimes" component={CadastroVideo} />
     <Route path="/editcategories" component={CadastroCategoria} />
     <Route exact path="/anime/:name" component={AnimePage} />
-    <Route path="/anime/:name/:episode" component={AnimePage} />
+    <Route path="/anime/:name/:episode" component={EpisodePage} />
 
     <Route component={()=> (<div>Página não encontrada! Erro 404</div>)} />
   </Switch>

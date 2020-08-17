@@ -7,7 +7,7 @@ import Carousel from '../../components/Carousel';
 
 function AnimePage() {
   const [anime, setAnime] = useState({ name: '', seasons: [], episodes: [] });
-  const { name, episode } = useParams();
+  const { name } = useParams();
   useEffect(() => {
     animes.select(name)
       .then((animeInfo) => {
