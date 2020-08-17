@@ -14,7 +14,6 @@ function AnimePage() {
         setAnime(animeInfo);
       });
   }, [name]);
-  console.log(anime);
   return (
     <PageDefault paddingAll={0}>
       <BannerMain
